@@ -1,8 +1,7 @@
 import java.util.Random;
 
 public class MagicBox<T> {
-    int nullSize = 0;
-    T[] items;
+    private T[] items;
 
     public MagicBox(int sizeBox) {
         items = (T[]) new Object[sizeBox];
@@ -18,13 +17,10 @@ public class MagicBox<T> {
         return false;
     }
 
-
     public T pick() {
         for (int i = 0; i < items.length; i++) {
-       //     System.out.println(i + " " + items[i]);
             if (items[i] == null) {
-                nullSize = items.length - i;
-                throw new RuntimeException("осталось " + nullSize);
+                throw new RuntimeException("осталось " + (items.length - i));
             }
         }
         Random random = new Random();
